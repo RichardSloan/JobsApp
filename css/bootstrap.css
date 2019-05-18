@@ -622,7 +622,7 @@ pre code {
   border: 1px solid rgba(0, 0, 0, .1);
   box-shadow: 0px 0px 4px rgba(0, 0, 0, .1);
   border-radius: 5px;
-  align-items: center;
+  
 }
 
 .no-gutters {
@@ -1174,6 +1174,7 @@ pre code {
     -ms-flex: 0 0 25%;
     flex: 0 0 25%;
     max-width: 25%;
+    border-left: 1px solid rgba(224, 25, 25, 0.1);
   }
 
   .col-md-4 {

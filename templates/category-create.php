@@ -8,8 +8,10 @@
     <input type="submit" class="btn btn btn-success" value="Submit" name="submit">
     <br><br>
 </form>
+
 <h2 align="center">Manage Categories</h2>
 <div class="row">
+    
     <?php foreach ($categories as $category) : ?>
 
 
@@ -26,66 +28,121 @@
     <?php endforeach ?>
 </div>
 
-<div class="row">
-<div class="col-md-6">
-    <h2 align="center">Manage Users</h2>
-    <div class="table">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">User Name</th>
-                    <th scope="col">Email Address</th>
-                    <th scope="col">Date Joined</th>
-                    <th scope="col">Action</th>
-                </tr>
-            </thead>
-            <?php foreach ($users as $user) : ?>
-                <tbody>
-                    <tr>
-                        <th class="scope"><?php echo $user->uidUsers; ?></th>
-                        <td><?php echo $user->emailUsers; ?></td>
-                        <td><?php echo $user->date_joined; ?></td>
-                        <form style="display:inline;" method="post" action="createcategory.php">
-                            <input type="hidden" name="delUser_id" value="<?php echo $user->idUsers; ?>">
-                            <td><input type="submit" class="btn btn-danger" value="Delete"></td>
-                        </form>
-                    </tr>
-                </tbody>
-            <?php endforeach ?>
-        </table>
+    <!-- DataTables Example -->
+    <div class="card mb-3">
+        <div class="card-header">
+            <i class="fas fa-table"></i>
+            Manage Users</div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>User Name</th>
+                            <th>Email Address</th>
+                            <th>Frist Name</th>
+                            <th>Last Name</th>
+                            <th>Date Joined</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>ID</th>
+                            <th>User Name</th>
+                            <th>Email Address</th>
+                            <th>Frist Name</th>
+                            <th>Last Name</th>
+                            <th>Date Joined</th>
+                            <th>Action</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        <?php foreach ($users as $user) : ?>
+                            <tr>
+                                <td><?php echo $user->idUsers; ?></td>
+                                <td><?php echo $user->uidUsers; ?></td>
+                                <td><?php echo $user->emailUsers; ?></td>
+                                <td>First Name</td>
+                                <td>Last Name</td>
+                                <td><?php echo $user->date_joined; ?></td>
+                                <td>
+                                    <form style="display:inline;" method="post" action="createcategory.php">
+                                        <input type="hidden" name="delUser_id" value="<?php echo $user->idUsers; ?>">
+                                <input type="submit" class="btn btn-danger" value="Delete"></td>
+                                </form>
+                                </td>
+                                </form>
+                                </td>
+                            </tr>
+                        <?php endforeach ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="card-footer small text-muted"></div>
     </div>
-</div>
 
-<div class="col-md-6">
-    <h2 align="center">Manage Jobs</h2>
-    <div class="table">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">User Name</th>
-                    <th scope="col">Email Address</th>
-                    <th scope="col">Date Joined</th>
-                    <th scope="col">Action</th>
-                </tr>
-            </thead>
-            <?php foreach ($users as $user) : ?>
-                <tbody>
-                    <tr>
-                        <th class="scope"><?php echo $user->uidUsers; ?></th>
-                        <td><?php echo $user->emailUsers; ?></td>
-                        <td><?php echo $user->date_joined; ?></td>
-                        <form style="display:inline;" method="post" action="createcategory.php">
-                            <input type="hidden" name="delUser_id" value="<?php echo $user->idUsers; ?>">
-                            <td><input type="submit" class="btn btn-danger" value="Delete"></td>
-                        </form>
-                    </tr>
-                </tbody>
-            <?php endforeach ?>
-        </table>
+    <!-- DataTables Example -->
+    <div class="card mb-3">
+        <div class="card-header">
+            <i class="fas fa-table"></i>
+            Manage Job Listings</div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Job TitLE</th>
+                            <th>Category</th>
+                            <th>Company</th>
+                            <th>Salary</th>
+                            <th>Location</th>
+                            <th>Contact User</th>
+                            <th>Contact Email</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>ID</th>
+                            <th>Job TitLE</th>
+                            <th>Category</th>
+                            <th>Company</th>
+                            <th>Salary</th>
+                            <th>Location</th>
+                            <th>Contact User</th>
+                            <th>Contact Email</th>
+                            <th>Action</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        <?php foreach ($jobs as $job) : ?>
+                            <tr>
+                                <td><?php echo $job->id; ?></td>
+                                <td><?php echo $job->job_title; ?></td>
+                                <td><?php echo $job->cname; ?></td>
+                                <td><?php echo $job->company; ?></td>
+                                <td><?php echo $job->salary; ?></td>
+                                <td><?php echo $job->location; ?></td>
+                                <td><?php echo $job->contact_user; ?></td>
+                                <td><?php echo $job->contact_email; ?></td>
+                                <td>
+                                    <form style="display:inline;" method="post" action="createcategory.php"><input type="hidden" name="delJob_id" value="<?php echo $job->id; ?>">
+                                        <input type="submit" class="btn btn-danger" value="Delete">
+                                </td>
+                                </form>
+                                </td>
+                            </tr>
+                        <?php endforeach ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="card-footer small text-muted"></div>
     </div>
-</div>
-</div>
 
 
-
-<?php include 'inc/footer.php'; ?>
+    <?php include 'inc/footer.php'; ?>

@@ -36,6 +36,15 @@ if(isset($_POST['delUser_id'])) {
     }
 }
 
+if(isset($_POST['delJob_id'])) {
+    $delJob_id = $_POST['delJob_id'];
+    if($job->delete($delJob_id)) {
+        redirect('createcategory.php', 'Job Deleted', 'success');
+    } else {
+        redirect('createcategory.php', 'Job Not Deleted', 'error');
+    }
+}
+
 
 $template->jobs = $job->getAllJobs();
 $template->categories = $job->getAllCategories();
