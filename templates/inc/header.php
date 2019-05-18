@@ -42,7 +42,7 @@
             <input class="form-control mr-sm-2" type="text" name="mailuid" placeholder="Username or Email!">
             <input class="form-control mr-sm-2" type="password" name="pwd" placeholder="Password">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="login-submit">Login</button>
-          </form><button class="btn btn-outline-success my-2 my-sm-0" type="submit" href="signup.php">Sign Up</button>';
+          </form><a class="btn btn-outline-success my-2 my-sm-0" type="submit" href="register.php">Sign Up</a>';
         }
         ?>
 
